@@ -151,7 +151,6 @@ section {
     background-image: url('../images/hero-bg.jpg');
 }
 #home {
-    background-image: url(./assets/images/hero-bg.jpg);
     background-size: cover;
     background-position: center;
     padding: 20%;
