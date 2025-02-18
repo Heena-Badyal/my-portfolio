@@ -1,4 +1,9 @@
 /* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -15,7 +20,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 250px;
+    width: 230px;
     background: #111;
     color: white;
     height: 100vh;
@@ -97,20 +102,103 @@ border-radius:50%;
 /* Main Content */
 .content {
     margin-left: 270px;
-    padding: 20px;
-    flex-grow: 1;
+   margin-top: 0px;
+}
+/* About Section */
+#about {
+    background:#fff;
+    color: #111;
+    padding: 50px 20px;
+    text-align: center;
 }
 
-/* Sections */
-section {
-    margin-bottom: 50px;
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
     padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.8s ease-out forwards;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.about-content {
+    flex: 2;
+    min-width: 300px;
+    padding: 20px;
+    text-align: left;
+}
+
+.about-content h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 5px;
+}
+
+.about-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-content ul li {
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #555;
+}
+
+.about-content ul li span {
+    font-weight: bold;
+    color: #111;
+}
+.about-desc{
+    text-align: left;
+}
+.about-desc h2{
+    position:relative;
+}
+.about-desc h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background:#149ddd;
+    left: 50;
+    bottom:10;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-content h2 {
+        text-align: center;
+    }
 }
 #home h1{
     color:#fff;
@@ -147,20 +235,49 @@ section {
     }
 }
 
-#home{
-    background-image: url('../images/hero-bg.jpg');
-}
 #home {
+    position: relative;
+    background-image: url(../images/hero-bg.jpg);
     background-size: cover;
     background-position: center;
-    padding: 20%;
+    padding: 20% 10%;
     border-radius: 0px !important;
+    z-index: 1;
 }
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity (0.5 for 50% transparency) */
+    border-radius: inherit;
+    z-index: -1; /* Places the overlay behind content */
+}
+
 /* Portfolio Filters */
 .portfolio-filters {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    width:100%;
+}
+#portfolio h2:after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background:#149ddd;
+    left: 50;
+    bottom:30;
+    top:30;
+}
+h2.section-title {
+    width: 100%;
+    position: relative;
 }
 
 .filter-btn {
@@ -174,7 +291,7 @@ section {
 }
 
 .filter-btn.active {
-    background: blue;
+    background: #149ddd;;
     color: white;
 }
 
@@ -184,6 +301,9 @@ section {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     padding: 20px;
+}
+section#portfolio {
+    display: ruby;
 }
 
 /* Portfolio Item */
@@ -351,7 +471,18 @@ section {
 
 .info-item i {
     font-size: 20px;
-    color: #007BFF;
+    color: #149ddd;
+    height: 20px;
+    width: 20px;
+    padding: 8px;
+    border-radius: 20px;
+    text-align: center;
+    background: #5ec6ec26;
+}
+.info-item i:hover{
+    background: #149ddd;
+    transition: .2s;
+    color:#fff;
 }
 
 .info-item p {
@@ -399,7 +530,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 button:hover {
