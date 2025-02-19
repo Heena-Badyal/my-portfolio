@@ -3,7 +3,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -11,12 +10,16 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
+h2{
+    animation: slideIn 1.5s ease-out 0.5s forwards;   
+}
 
 /* Container Layout */
 .container {
     display: flex;
     flex-wrap: wrap;
 }
+
 
 /* Sidebar */
 .sidebar {
@@ -151,6 +154,7 @@ border-radius:50%;
     margin-bottom: 15px;
     border-bottom: 2px solid #111;
     padding-bottom: 5px;
+    opacity: 0;
 }
 
 .about-content ul {
@@ -174,6 +178,7 @@ border-radius:50%;
 }
 .about-desc h2{
     position:relative;
+    opacity:0;
 }
 .about-desc h2:after {
     content: "";
@@ -198,10 +203,13 @@ border-radius:50%;
 
     .about-content h2 {
         text-align: center;
+        opacity:0;
     }
 }
 #home h1{
     color:#fff;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in-out forwards;
 }
 #home h3{
     font-size: 2rem;
@@ -243,6 +251,7 @@ border-radius:50%;
     padding: 20% 10%;
     border-radius: 0px !important;
     z-index: 1;
+    background-attachment: fixed;
 }
 
 #home::before {
@@ -278,6 +287,7 @@ border-radius:50%;
 h2.section-title {
     width: 100%;
     position: relative;
+    opacity:0;
 }
 
 .filter-btn {
@@ -460,6 +470,7 @@ section#portfolio {
 .contact-info h2 {
     margin-bottom: 15px;
     color: #333;
+    opacity: 0;
 }
 
 .info-item {
@@ -502,6 +513,7 @@ section#portfolio {
 .contact-form h2 {
     margin-bottom: 15px;
     color: #333;
+    opacity:0;
 }
 
 .input-box {
@@ -596,4 +608,73 @@ button:hover {
         height: 200px;
       }
     
+}
+
+
+
+/* animation */
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  /* Slide-in animation */
+  @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 1s ease-in-out;
+}
+.contact-info h2{
+    opacity:0;
+}
+.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 1s ease-in-out;
+}
+
+.slide-in {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s ease-out;
+}
+
+.bounce-in {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 1s ease-in-out;
+}
+
+.fade-in.show,
+.slide-in.show,
+.bounce-in.show {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
 }

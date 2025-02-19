@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <!-- sidebar -->
     <div class="container">
         <nav class="sidebar">
             <div class="profile">
@@ -26,11 +27,14 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+
+        <!-- banner -->
         <main class="content">
             <section id="home">
                 <h1>Alex Smith</h1>
                 <h3>I am a passionate web developer.</h3>
             </section>
+            <!-- about -->
             <section id="about">
            <div class="about-desc">
             <h2>About</h2>
@@ -52,6 +56,7 @@
                     </div>
                 </div>
             </section>
+            <!-- portfolio -->
             <section id="portfolio">
                 <h2 class="section-title">My Portfolio</h2>
         
@@ -140,15 +145,10 @@
                     </div>
                 </div>
             </section>
-        
-            <!-- Fullscreen Image Modal -->
-            <!-- <div id="fullscreen-modal" class="fullscreen-modal">
-                <span class="close-btn" onclick="closeFullscreen()">&times;</span>
-                <img id="fullscreen-img" class="fullscreen-img">
-            </div>-->
+            <!-- contact -->
            <section class="contact-section" id="contact">
         <div class="contact-info">
-            <h2>Contact Info</h2>
+            <h2 class="fade-in">Contact Info</h2>
             <div class="info-item">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <p>1234 Main Street, City, Country</p>
@@ -219,18 +219,21 @@
     // Show all items by default
     document.querySelector(".filter-btn[data-filter='all']").click();
 });
+</script>
+<!-- animation js -->
+<script>
+    function revealOnScroll() {
+        const elements = document.querySelectorAll('.fade-in, .slide-in, .bounce-in');
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
+                el.classList.add('show');
+            }
+        });
+    }
 
-
-
-/* Fullscreen Image Modal */
-// function openFullscreen(imageSrc) {
-//     document.getElementById("fullscreen-modal").style.display = "flex";
-//     document.getElementById("fullscreen-img").src = imageSrc;
-// }
-
-// function closeFullscreen() {
-//     document.getElementById("fullscreen-modal").style.display = "none";
-// }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Run once on load to check for already visible elements
 </script>
 
     
